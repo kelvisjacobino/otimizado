@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Azul 💬</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- LOGIN -->
+  <div id="loginContainer" class="card">
+    <h2>💬 Login</h2>
+    <form id="loginForm">
+      <input id="login-username" type="text" placeholder="Usuário" required>
+      <input id="login-password" type="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <p>Não tem conta? <a href="#" id="goToRegister">Cadastre-se</a></p>
+    <p id="loginError" class="error"></p>
+  </div>
+
+  <!-- CADASTRO -->
+  <div id="registerContainer" class="card hidden">
+    <h2>📝 Cadastro</h2>
+    <form id="registerForm" enctype="multipart/form-data">
+      <input id="reg-username" type="text" placeholder="Novo usuário" required>
+      <input id="reg-password" type="password" placeholder="Nova senha" required>
+      <label>Cor do tema:</label>
+      <input id="reg-color" type="color" value="#007BFF">
+      <label>Avatar:</label>
+      <input id="reg-avatar" type="file" accept="image/*">
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p>Já tem conta? <a href="#" id="goToLogin">Entrar</a></p>
+    <p id="registerError" class="error"></p>
+  </div>
+
+  <!-- CHAT -->
+  <div id="chatContainer" class="hidden">
+    <div class="chatHeader">
+      <h2>Chat Azul 💙</h2>
+      <div class="chatActions">
+        <button id="darkModeBtn">Modo Escuro</button>
+        <button id="logout">Sair</button>
+      </div>
+    </div>
+    <div class="chatMain">
+      <div id="messages"></div>
+      <div id="onlineUsers">
+        <h3>Usuários Online</h3>
+        <ul id="usersList"></ul>
+      </div>
+    </div>
+    <form id="chatForm">
+      <input id="messageInput" type="text" placeholder="Digite sua mensagem...">
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <audio id="msgSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d001e3b37a.mp3"></audio>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
